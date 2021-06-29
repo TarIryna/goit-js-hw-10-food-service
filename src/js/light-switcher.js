@@ -1,6 +1,6 @@
 const lightSwitch = document.querySelector(".theme-switch__toggle");
 const bodyEl = document.querySelector("body");
-
+themeControl();
 
 lightSwitch.addEventListener('change', themeSwitch);
 
@@ -19,6 +19,14 @@ function themeSwitch() {
     }
 }
 
-// localStorage.setItem('theme', "${lightSwitch.checked}")
+function themeControl () {
+    const themeSaved = localStorage.getItem('theme');
+    console.log(themeSaved);
+    if (themeSaved === "dark-theme") {
+        bodyEl.classList.remove("light-theme");
+        bodyEl.classList.add("dark-theme");
+        lightSwitch.setAttribute('checked', 'true');
+    }
+}
 
-console.log(lightSwitch.checked);
+
